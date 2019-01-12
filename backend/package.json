@@ -6,12 +6,14 @@
   "scripts": {
     "start": "node ./bin/server",
     "dev": "nodemon ./bin/server",
-    "configure": "./bin/sql/configure_db.sh"
+    "configure": "./bin/sql/configure_db.sh",
+    "configure-dev": "npm run configure && npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "pg": "^7.7.1"
   }
