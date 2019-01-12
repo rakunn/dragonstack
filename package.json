@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/rakunn/dragonstack/issues"
   },
-  "homepage": "https://github.com/rakunn/dragonstack#readme"
+  "homepage": "https://github.com/rakunn/dragonstack#readme",
+  "dependencies": {
+    "react-redux": "^5.0.7"
+  }
 }
