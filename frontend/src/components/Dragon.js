@@ -1,40 +1,36 @@
 /* global fetch */
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+
+import DragonAvatar from './DragonAvatar';
 
 const DEFAULT_DRAGON = {
     generationId: undefined,
     dragonId: undefined,
     nickName: undefined,
-    birthDate: undefined,
+    birthdate: undefined,
     traits: [],
 };
 
 class Dragon extends Component {
     state = { dragon: DEFAULT_DRAGON }
 
-    componentDidMount() {
+    fetchDragon = () => {
         fetch('https://web-dev-node-rakunn.c9users.io/dragon/new')
             .then(response => response.json())
             .then(json => this.setState({ dragon: json }))
             .catch(error => console.error(error));
     }
 
-    render() {
-        const { dragon } = this.state;
+    componentDidMount() {
+        this.fetchDragon();
+    }
 
+    render() {
         return (
             <div>
-                <ul>
-                    <li>{ dragon.generationId }</li>
-                    <li>{ dragon.dragonId }</li>
-                    <li>
-                        <ul>
-                        { dragon.traits.map(({ traitType, traitValue}) => (
-                            <li> { traitType }: { traitValue }</li>
-                        )) }
-                        </ul>
-                    </li>
-                </ul>
+                <Button onClick={this.fetchDragon}>New Dragon</Button>
+                <DragonAvatar dragon = {this.state.dragon} />
             </div>
         );
     }

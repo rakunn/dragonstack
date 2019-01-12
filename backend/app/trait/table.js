@@ -7,7 +7,6 @@ class TraitTable {
            [ traitType, traitValue ],
            (error, response) => {
              if (error) reject(error);
-
              resolve({ traitId: response.rows[0].id });
            });
         });

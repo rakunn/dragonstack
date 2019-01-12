@@ -28,7 +28,7 @@
         ]
     },
     {
-        "type": "build",
+        "type": "size",
         "values": [
             "enormous",
             "small",
